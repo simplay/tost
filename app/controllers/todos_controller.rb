@@ -15,7 +15,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new todo_params
     if @todo.save
-      redirect_to new_todo_path
+      redirect_to todos_path
     else
       redirect_to new_todo_path
     end
@@ -28,9 +28,9 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find params[:id]
     if @todo.update_attributes(todo_params)
-      redirect_to edit_todo_path(@todo)
-    else
       redirect_to todos_path
+    else
+      redirect_to edit_todo_path(@todo)
     end
   end
 

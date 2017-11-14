@@ -1,9 +1,11 @@
-<h1=>TODO List</h1>
-<br>
-title: <%= @todo.title %>
-<br>
-description: <%= @todo.description %>
-<br>
-due: <%= @todo.due %>
-<br>
-done: <%= @todo.done %>
+<section class="section">
+  <div class="container">
+    <h1 class="title"> 
+      <%= @todo.title %>
+    </h1>
+    <h2 class="subtitle">
+      <%= @todo.description %>
+    </h2>
+  </div>
+  <%= link_to "back", todos_path %>
+</section
