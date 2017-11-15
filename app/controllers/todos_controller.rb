@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def show
     @todo = Todo.find params[:id]

@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/top_navigation" %>
+    <section class="container">
+      <div class="columns">
+        <%= render "layouts/side_navigation" %>
+        <div class="column is-9">
+          <div class="box content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

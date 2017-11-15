@@ -1,36 +1,32 @@
-<div class="container is-widescreen">
-  <h1 class="title">TODO List </h1>
-  <section class="section cards">
-  <div class="container">
+<h1 class="title">All</h1>
 
-    <div class="columns is-multiline is-centered">
-      <div class="column is-one-quarter">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title is-centered">
-              <%= link_to "New", new_todo_path %>
-            </p>
-          </header>
-        </div>
-      </div>
-
-      <% @todos.each do |todo| %>
-        <div class="column is-one-quarter">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title is-centered">
-                <%= link_to todo.title, todo_path(todo) %>
-              </p>
-            </header>
-            <footer class="card-footer is-centered">
-              <%= link_to "Done", "", class: 'button is-primary card-footer-item' %>
-              <%= link_to "Edit", edit_todo_path(todo), class: 'button is-link card-footer-item' %>
-              <%= link_to "Delete", todo_path(todo), class: 'button is-danger card-footer-item', method: :delete %>
-            </footer>
-          </div>
-        </div>
-      <% end %>
+<div class="box">
+  <div class="columns is-centered">
+    <div class="column is-1">
+      <%= link_to "New", new_todo_path %>
     </div>
   </div>
-  </section>
 </div>
+
+<% @todos.each do |todo| %>
+  <div class="box">
+    <div class="columns">
+      <div class="column is-1">
+        <%= link_to "Done", "", class: 'button is-primary card-footer-item' %>
+      </div>
+      <div class="column is-gapless">
+        <%= link_to todo.title, todo_path(todo) %>
+      </div>
+      <div class="column is-2">
+        <div class="columns is-gapless">
+          <div class="column">
+            <%= link_to "Edit", edit_todo_path(todo), class: 'button is-link card-footer-item' %>
+          </div>
+          <div class="column">
+            <%= link_to "Delete", todo_path(todo), class: 'button is-danger card-footer-item', method: :delete %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
