@@ -10,15 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114114838) do
+ActiveRecord::Schema.define(version: 20171117135117) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_todos", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "todo_id", null: false
+    t.index ["category_id", "todo_id"], name: "index_categories_todos_on_category_id_and_todo_id"
+  end
 
   create_table "todos", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.date     "due"
-    t.boolean  "done",        default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string "title"
+    t.text "description"
+    t.date "due"
+    t.boolean "done", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
