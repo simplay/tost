@@ -1,12 +1,13 @@
-<h1 class="title">All</h1>
+<h1 class="title">
+  <%= @category.name %>
+</h1>
 
 <div class="box">
   <div class="columns is-centered">
     <div class="column is-1">
-      <%= link_to "New", new_todo_path %>
+      <%= link_to "New", new_category_todo_path(@category)%>
     </div>
   </div>
 </div>
 
-<%# <%= render 'all' %>
 <%= render "todos/all", object: @category %>

@@ -1,0 +1,35 @@
+<% @todos.each do |todo| %>
+  <div class="box">
+    <div class="columns">
+      <div class="column is-1">
+        <%= link_to "Done", "", class: 'button is-primary card-footer-item' %>
+      </div>
+      <div class="column is-gapless">
+        <%= link_to todo.title, todo_path(todo) %>
+      </div>
+      <div class="column is-2">
+        <div class="columns is-gapless">
+          <div class="column">
+            <%= 
+              link_to(
+                "Edit", 
+                edit_path_of_todo(todo), 
+                class: 'button is-link card-footer-item' 
+              )
+            %>
+          </div>
+          <div class="column">
+            <%= 
+              link_to(
+                "Delete", 
+                delete_path_of_todo(todo),
+                class: 'button is-danger card-footer-item', 
+                method: :delete
+              )
+            %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

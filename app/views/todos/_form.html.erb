@@ -1,4 +1,6 @@
 <%= form_for @todo do |f| %>
+  <%= hidden_field_tag 'category_id', @category.try(:id) %>
+
   <div class="field">
     <label class="label">Title</label>
     <div class="control">

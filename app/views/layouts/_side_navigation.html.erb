@@ -7,11 +7,11 @@
       <li>
         <%= link_to "All", todos_path %>
       </li>
-      <li><a>Shares</a></li>
-      <li><a>Household</a></li>
-      <li><a>Work</a></li>
-      <li><a>Sport</a></li>
-      <li><a>Ideas</a></li>
+      <% Category.all.each do |c| %>
+        <li>
+          <%= link_to c.name, category_path(c) %>
+        </li>
+      <% end %>
     </ul>
   </aside>
 </div>
