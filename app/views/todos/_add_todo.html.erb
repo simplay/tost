@@ -1,0 +1,26 @@
+<div class="box">
+  <%= form_for Todo.new, url: add_todo_path, method: :get do |f| %>
+    <div class="columns is-centered is-gapless">
+      <div class="column is-1">
+        <div class="control">
+          <%= 
+            button_tag type: 'submit', class: "button is-success", id: "register-button" do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"> Add</i>
+          <% end %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="control">
+          <%= f.text_field :title, class: "input" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+

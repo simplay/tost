@@ -2,7 +2,15 @@
   <div class="box">
     <div class="columns">
       <div class="column is-1">
-        <%= link_to "Done", "", class: 'button is-primary card-footer-item' %>
+        <%= 
+          link_to(
+            "", 
+            class: 'button is-success card-footer-item'
+          ) do %>
+            <span class="icon is-small">
+              <i class="fa fa-check"></i>
+            </span>
+        <% end %>
       </div>
       <div class="column is-gapless">
         <%= link_to todo.title, todo_path(todo) %>

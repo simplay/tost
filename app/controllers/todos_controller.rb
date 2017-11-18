@@ -6,11 +6,12 @@ class TodosController < ApplicationController
   end
 
   def index
+    @todo = Todo.new
     @todos = Todo.all
   end
 
   def new
-    @todo = Todo.new
+    @todo = Todo.new(title: params[:todo][:title])
     @category = Category.find_by_id params[:category_id]
   end
 

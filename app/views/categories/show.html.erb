@@ -2,12 +2,5 @@
   <%= @category.name %>
 </h1>
 
-<div class="box">
-  <div class="columns is-centered">
-    <div class="column is-1">
-      <%= link_to "New", new_category_todo_path(@category)%>
-    </div>
-  </div>
-</div>
-
+<%= render "todos/add_todo", object: @category %>
 <%= render "todos/all", object: @category %>
