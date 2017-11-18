@@ -13,4 +13,9 @@ module ApplicationHelper
     return new_todo_path if @category.blank?
     new_category_todo_path(@category)
   end
+
+  def done_path_of_todo(todo)
+    return todo_done_path(todo) if @category.blank?
+    category_todo_done_path(@category, todo)
+  end
 end

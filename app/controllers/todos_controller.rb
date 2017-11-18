@@ -70,6 +70,18 @@ class TodosController < ApplicationController
     end
   end
 
+  def done
+    todo = Todo.find params[:todo_id]
+    todo.update_attributes(done: true)
+
+    try_load_category
+    if @category
+      redirect_to category_path(@category)
+    else
+      redirect_to todos_path
+    end
+  end
+
   private
 
   def update_categories

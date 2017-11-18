@@ -4,8 +4,9 @@
       <div class="column is-1">
         <%= 
           link_to(
-            "", 
-            class: 'button is-success card-footer-item'
+            done_path_of_todo(todo),
+            class: 'button is-success card-footer-item',
+            method: :post
           ) do %>
             <span class="icon is-small">
               <i class="fa fa-check"></i>
