@@ -6,7 +6,6 @@ class TodosController < ApplicationController
   end
 
   def index
-    @todo = Todo.new
     @todos = Todo.all
   end
 
@@ -84,7 +83,6 @@ class TodosController < ApplicationController
   end
 
   def try_load_category(&block)
-
     category_id = params[:category_id]
     unless category_id.blank?
       @category = Category.find category_id
@@ -100,6 +98,4 @@ class TodosController < ApplicationController
       :done
     )
   end
-
 end
-
