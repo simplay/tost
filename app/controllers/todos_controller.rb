@@ -10,7 +10,11 @@ class TodosController < ApplicationController
   end
 
   def new
-    @todo = Todo.new(title: params[:todo][:title])
+    todo_params = {}
+    todo_title = params.dig(:todo, :title)
+    todo_params[:title] = todo_title if todo_title
+
+    @todo = Todo.new(todo_params)
     @category = Category.find_by_id params[:category_id]
   end
 
