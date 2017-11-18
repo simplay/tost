@@ -15,12 +15,42 @@
     </div>
   </div>
 
-  <div class="field is-grouped">
+  <div class="field">
+    <label class="label">Categories</label>
+    <div class="select is-multiple is-medium">
+      <%= 
+        f.select(
+          :category_ids, 
+          Category.all.collect { |c| [c.name, c.id] }, 
+          {}, 
+          id: "todo_categories", 
+          :multiple => true
+        ) 
+      %>
+    </div>
+  </div>
+
+  <div class="field is-grouped is-grouped-right">
     <div class="control">
-      <%= f.submit 'Save', class: "button" %>
+      <%= 
+        f.submit(
+          'Save', 
+          class: "button is-success"
+        ) 
+      %>
     </div>
     <div class="control">
-      <%= link_to "Cancel", todos_path, class: "button is_text" %>
+      <%= 
+        link_to(
+          "Cancel", 
+          todos_path, 
+          class: "button is_text is-danger"
+        ) 
+      %>
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $("#todo_categories").select2();
+</script>

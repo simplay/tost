@@ -17,8 +17,11 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new todo_params
 
+    update_categories
     try_load_category do
-      @todo.categories << @category
+      unless @todo.categories.include?(@category)
+        @todo.categories << @category
+      end
     end
 
     if @todo.save
@@ -40,6 +43,7 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find params[:id]
 
+    update_categories
     try_load_category
 
     if @todo.update_attributes(todo_params)
@@ -68,7 +72,18 @@ class TodosController < ApplicationController
 
   private
 
+  def update_categories
+    category_ids = params[:todo][:category_ids]
+    unless category_ids.blank?
+      categories = category_ids.reject(&:blank?).map do |id|
+        Category.find id
+      end
+      @todo.categories = categories
+    end
+  end
+
   def try_load_category(&block)
+
     category_id = params[:category_id]
     unless category_id.blank?
       @category = Category.find category_id

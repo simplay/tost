@@ -31,6 +31,9 @@ gem "bulma-rails", "~> 0.6.1"
 # font-awesome font bundled as an asset 
 gem 'font-awesome-rails'
 
+# Integrate Select2 javascript library with Rails asset pipeline
+gem "select2-rails"
+
 group :development, :test do
   # Runtime developer console that can be used for debugging.
   gem "pry"
